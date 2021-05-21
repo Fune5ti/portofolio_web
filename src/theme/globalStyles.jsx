@@ -2,12 +2,13 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body{
+    transition: 0.4s;
+    line-height: 1.3;
     font-family: 'Open Sans';
     margin: 0;
     padding: 0;
     font-size: 16px;
     background-color: ${(props) => props.theme.backgroundPrimary};
-    overflow: hidden;
     p{
       color:${(props) => props.theme.fontSecondary};
     }

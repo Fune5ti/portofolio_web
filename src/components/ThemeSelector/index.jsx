@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container } from "./styles.js";
 
-function ThemeSelector({ changeState, currentState, backgroundColor, scale }) {
+function ThemeSelector({ changeState, currentState, scale }) {
   return (
-    <Container backgroundColor={backgroundColor} scale={scale}>
+    <Container scale={scale}>
       <input
         type="checkbox"
         value={currentState}
@@ -18,7 +18,6 @@ function ThemeSelector({ changeState, currentState, backgroundColor, scale }) {
 ThemeSelector.propTypes = {
   changeState: PropTypes.func.isRequired,
   currentState: PropTypes.bool.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
   scale: PropTypes.number.isRequired,
 };
 

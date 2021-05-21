@@ -37,11 +37,11 @@ export const Container = styled.label`
   }
 
   input:checked + .slider {
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.theme.flair};
   }
 
   input:focus + .slider {
-    box-shadow: 0 0 1px ${(props) => props.backgroundColor};
+    box-shadow: 0 0 1px ${(props) => props.theme.flair};
   }
 
   input:checked + .slider:before {

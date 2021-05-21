@@ -1,1 +1,10 @@
-{}
+{
+  "home": {
+    "greetings": "Hi, my name is",
+    "name": "Daniel Pires",
+    "subtitleStart": "I am a",
+    "subtitleMiddle": "passionate",
+    "subtitleEnd": "software developer.",
+    "description": "I am a Cape Verde based software engineer who specializes in frontend development, but also very passionate about learning new technologies and always willing to work on new projects with challenging new \"roads\"."
+  }
+}
