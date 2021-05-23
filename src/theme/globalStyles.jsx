@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     h1,h2,h3{
       color:${(props) => props.theme.fontPrimary};
     }
+    padding-top:80px;
   }
   ::-webkit-scrollbar {
     display: none;

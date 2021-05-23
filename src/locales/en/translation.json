@@ -1,10 +1,35 @@
 {
+  "navbar": {
+    "home": "Home",
+    "about": "About Me",
+    "skills": "My Skills",
+    "projects": "My Projects",
+    "contact": "Contact"
+  },
   "home": {
+    "title": "Who am I?",
     "greetings": "Hi, my name is",
     "name": "Daniel Pires",
     "subtitleStart": "I am a",
     "subtitleMiddle": "passionate",
     "subtitleEnd": "software developer.",
     "description": "I am a Cape Verde based software engineer who specializes in frontend development, but also very passionate about learning new technologies and always willing to work on new projects with challenging new \"roads\"."
+  },
+  "languageName": {
+    "en": "English",
+    "pt": "Portuguese"
+  },
+  "project": {
+    "title": "Projects"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I live and work in Mindelo, Cape Verde. I work currently at devgo.org, I develop web applications, mobile apps and also i have some dev-ops tasks like deploying web applications with docker and kubernetes. I'm very passionate about what i do, i like to work with strict rules about organization so that my projects can be easily maintained and scalable."
+  },
+  "skills": {
+    "title": "My Skills"
+  },
+  "contact": {
+    "title": "Contact me"
   }
 }

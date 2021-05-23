@@ -1,1 +1,34 @@
-{}
+{
+  "navbar": {
+    "home": "Home",
+    "about": "Sobre mim",
+    "skills": "Competências",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "home": {
+    "greetings": "O meu nome é,",
+    "name": "Daniel Pires",
+    "subtitleStart": "Sou um desenvolvedor",
+    "subtitleMiddle": "apaixonado",
+    "subtitleEnd": "por software.",
+    "description": "Sou de Cabo Verde, e especializado em desenvolvimento de Frontend, mas apaixonado por aprender novas tecnologias e sempre disposto a trabalhar em projetos desafiantes."
+  },
+  "languageName": {
+    "en": "Inglês",
+    "pt": "Português"
+  },
+  "project": {
+    "title": "Projetos"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "description": "Vivo e trabalho em Mindelo, Cabo Verde. Trabalho actualmente na empresa devgo, desenvolvo aplicações web, aplicações móveis e também tenho algumas tarefas de dev-ops como a implementação de aplicações web com docker e kubernetes. Sou muito apaixonado pelo que faço, gosto de trabalhar com regras rigorosas sobre organização para que os meus projectos possam ser facilmente mantidos e escaláveis."
+  },
+  "skills": {
+    "title": "Minhas competências"
+  },
+  "contact": {
+    "title": "Contacte-me"
+  }
+}

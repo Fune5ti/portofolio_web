@@ -17,9 +17,9 @@ i18n
     debug: false,
     resources,
     load: "languageOnly",
-    lng: "en",
+    lng: localStorage.getItem("lng") || "en",
     fallbackLng: "en",
-    whitelist: ["en", "de"],
+    whitelist: ["en", "pt"],
     nonExplicitWhitelist: true,
     interpolation: {
       escapeValue: false,

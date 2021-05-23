@@ -8,7 +8,9 @@ import { darkTheme } from "../../theme/colors";
 const INITIAL_STATE = {
   error: false,
   loading: false,
-  currentTheme: darkTheme,
+  currentTheme: localStorage.getItem("theme")
+    ? JSON.parse(localStorage.getItem("theme"))
+    : darkTheme,
 };
 
 export default function theme(state = INITIAL_STATE, action) {

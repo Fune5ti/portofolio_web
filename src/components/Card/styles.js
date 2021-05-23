@@ -70,7 +70,6 @@ export const CardContent = styled.div`
 export const CardTitle = styled.h2`
   position: relative;
   width: max-content;
-
   :after {
     content: "";
     position: absolute;

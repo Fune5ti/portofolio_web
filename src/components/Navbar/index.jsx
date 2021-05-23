@@ -1,26 +1,63 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Container } from "./styles";
+import { withTheme } from "styled-components";
+import {
+  Container,
+  NavBarDropDown,
+  NavBarButtonItemsContainer,
+} from "./styles";
 import NavbarItem from "../NavbarItem";
-import D from "../../assets/d.svg";
+import Hamburger from "../../components/HamburguerIcon";
 import ThemeSelector from "../ThemeSelector";
 
-export default function NavBar({
+function NavBar({
   navbarItems,
   themeSelectorAction,
   currentThemeState,
+  showMenuItems,
+  setShowMenuItems,
+  theme,
 }) {
+  const navbarDropDownRef = useRef();
+
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setShowMenuItems(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  useOutsideAlerter(navbarDropDownRef);
+
   return (
     <Container>
-      <div>
-        {navbarItems.map((item, index) => (
-          <NavbarItem
-            key={Date.now() + index}
-            text={item.text}
-            clickAction={item.clickAction}
-          />
-        ))}
-      </div>
+      <NavBarButtonItemsContainer ref={navbarDropDownRef}>
+        <button onClick={() => setShowMenuItems(!showMenuItems)}>
+          <Hamburger open={showMenuItems} />
+        </button>
+        {showMenuItems && (
+          <NavBarDropDown open={showMenuItems}>
+            {navbarItems.map((item, index) => (
+              <NavbarItem
+                key={Date.now() + index}
+                text={item.text}
+                clickAction={() => {
+                  item.clickAction();
+                  setShowMenuItems(false);
+                }}
+              />
+            ))}
+          </NavBarDropDown>
+        )}
+      </NavBarButtonItemsContainer>
       <span>
         <h2>{currentThemeState ? "Dark" : "Light"}</h2>
         <ThemeSelector
@@ -33,6 +70,7 @@ export default function NavBar({
   );
 }
 
+export default withTheme(NavBar);
 NavBar.propTypes = {
   navbarItems: PropTypes.arrayOf(
     PropTypes.shape({
