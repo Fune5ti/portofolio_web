@@ -11,7 +11,7 @@ export const lightTheme = {
   backgroundSecondary: "#f6f6f8",
   backgroundPrimary: "#dddfd4",
   fontPrimary: "#173e43",
-  fontSecondary: "#1F2833",
+  fontSecondary: "#34656d",
   flair: "#C60021",
   highlight: "#173e43",
 };

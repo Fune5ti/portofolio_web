@@ -111,9 +111,28 @@ export const Contact = styled.div`
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 20px;
+  strong {
+    color: ${(props) => props.theme.highlight};
+    font-weight: 900;
+    font-size: 25px;
+  }
+  span {
+    height: 100%;
+    svg {
+      height: 50px;
+      width: 50px;
+      margin: 10px;
+      :hover {
+        transition: transform 0.5s ease-in-out;
+        transform-origin: bottom;
+        transform: scale(1.1);
+        fill: ${(props) => props.theme.highlight};
+      }
+    }
+  }
   button {
     border: none;
     border-radius: 10px;

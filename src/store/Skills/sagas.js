@@ -6,7 +6,6 @@ import api from "../../services/api";
 function* getSkills() {
   try {
     const response = yield call(() => api.get("/skill/all"));
-    console.log(response);
     yield put(getSkillsSuccess(response.data));
   } catch (error) {
     yield put(getSkillsFailure());

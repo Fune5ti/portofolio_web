@@ -23,12 +23,15 @@ import WebDev from "../../assets/web-development.svg";
 import Card from "../../components/Card";
 import Navbar from "../../components/Navbar/index";
 import Selector from "../../components/Selector/index";
-import ProgressCircle from "../../components/ProgressCircle";
+import LoadingBox from "../../components/Loading";
 
 import PTFlag from "../../assets/flags/098-portugal.svg";
 import ENFlag from "../../assets/flags/121-england.svg";
 import UpArrow from "../../assets/up-arrow.svg";
 import DownArrow from "../../assets/down-arrow.svg";
+import Facebook from "./assets/facebook";
+import Linkedin from "./assets/linkedin";
+
 import Divider from "../../components/Divider";
 import verifyCurrentTheme from "../../utils/verifyCurrentTheme";
 import CardWithPercentage from "../../components/CardWithPercentage";
@@ -36,8 +39,13 @@ import CardWithPercentage from "../../components/CardWithPercentage";
 function Home({ theme }) {
   const [showMenuItems, setShowMenuItems] = useState(false);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
+
   const skills = useSelector((state) => state.skills.items);
   const projects = useSelector((state) => state.projects.items);
+
+  const skillsLoading = useSelector((state) => state.skills.loading);
+  const projectsLoading = useSelector((state) => state.projects.loading);
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -156,45 +164,67 @@ function Home({ theme }) {
 
       <Tab row ref={skillsRef}>
         <Divider text={t("skills.title")} />
-        <Skills>
-          {skills?.map((skill) => (
-            <CardWithPercentage
-              key={skill._id}
-              skill={skill}
-              backgroundColor={theme.flair}
-              foregroundColor={theme.highlight}
-              textColor={theme.fontSecondary}
-            />
-          ))}
-        </Skills>
+        {skillsLoading ? (
+          <Skills>
+            <LoadingBox color={theme.flair} />
+          </Skills>
+        ) : (
+          <Skills>
+            {skills?.map((skill) => (
+              <CardWithPercentage
+                key={skill._id}
+                skill={skill}
+                backgroundColor={theme.flair}
+                foregroundColor={theme.highlight}
+                textColor={theme.fontSecondary}
+              />
+            ))}
+          </Skills>
+        )}
       </Tab>
       <Tab ref={projectsRef}>
         <Divider text={t("project.title")} />
         <Content>
-          {projects?.map((project) => (
-            <span>
-              <Card
-                key={`${project.name}"+"${project.year}`}
-                title={project.name}
-                year={project.year}
-                description={
-                  localStorage.getItem("lng") === "en" ||
-                  localStorage.getItem("lng") === undefined
-                    ? project.description
-                    : project.descriptionPT
-                }
-                technologies={project.technologies}
-              />
-            </span>
-          ))}
+          {projectsLoading ? (
+            <LoadingBox color={theme.flair} />
+          ) : (
+            projects?.map((project) => (
+              <span>
+                <Card
+                  key={`${project.name}"+"${project.year}`}
+                  title={project.name}
+                  year={project.year}
+                  description={
+                    localStorage.getItem("lng") === "en" ||
+                    localStorage.getItem("lng") === undefined
+                      ? project.description
+                      : project.descriptionPT
+                  }
+                  technologies={project.technologies}
+                />
+              </span>
+            ))
+          )}
         </Content>
       </Tab>
       <Tab ref={contactRef}>
         <Divider text={t("contact.title")} />
         <Contact>
-          <button onClick={() => window.open("mailto:danipires9@hotmail.com")}>
+          <strong>danipires9@hotmail.com</strong>
+          <button onClick={() => history.push("mailto:danipires9@hotmail.com")}>
             {t("contact.title")}
           </button>
+          <span>
+            <a href="https://web.facebook.com/daniel.jorge.777" target="_blank">
+              <Facebook color={theme.flair} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/daniel-pires-0852311b4/"
+              target="_blank"
+            >
+              <Linkedin color={theme.flair} />
+            </a>
+          </span>
         </Contact>
       </Tab>
     </Layout>

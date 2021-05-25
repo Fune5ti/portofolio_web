@@ -9,7 +9,6 @@ export const Container = styled.div`
   padding: 0.5rem 1.25rem;
   font-size: 0.8rem;
   opacity: 80%;
-  border-bottom: 1px solid ${(props) => props.theme.flair};
   :hover,
   :focus {
     transition: all 0.3s ease;
